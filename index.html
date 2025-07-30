@@ -18,10 +18,14 @@
     }
 
     .busta, .invito {
-      max-width: 90%;
-      max-height: 80vh;
       transition: opacity 1s, transform 1s;
       cursor: pointer;
+    }
+
+    .busta {
+      max-width: 90%;
+      max-height: 80vh;
+      z-index: 2;
     }
 
     .invito {
@@ -31,13 +35,13 @@
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       pointer-events: none;
-      max-width: 10%;
-      max-height: 95vh;
+      height: auto;
+      width: auto;
     }
 
     .busta.fade-out {
       opacity: 0;
-      transform: scale(1.2); /* INGRANDISCE la busta */
+      transform: scale(1.2);
     }
 
     .invito.fade-in {
