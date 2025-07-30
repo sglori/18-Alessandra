@@ -15,33 +15,33 @@
       flex-direction: column;
       font-family: Arial, sans-serif;
       position: relative;
-      overflow: hidden;
+    }
+
+    .busta, .invito {
+      transition: opacity 1s, transform 1s;
+      cursor: pointer;
     }
 
     .busta {
-      transition: opacity 1s, transform 1s;
-      cursor: pointer;
-      max-width: 90vw;
+      max-width: 90%;
       max-height: 80vh;
       z-index: 2;
-    }
-
-    .busta.fade-out {
-      opacity: 0;
-      transform: scale(1.2);
     }
 
     .invito {
       opacity: 0;
       transform: scale(0.9);
       position: absolute;
-      border: none;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       pointer-events: none;
-      width: 90vw;
-      height: 80vh;
-      z-index: 1;
+      height: auto;
+      width: auto;
+    }
+
+    .busta.fade-out {
+      opacity: 0;
+      transform: scale(1.2);
     }
 
     .invito.fade-in {
@@ -59,17 +59,6 @@
         transform: scale(1);
       }
     }
-
-    /* Responsive mobile */
-    @media (max-width: 600px) {
-      .invito {
-        width: 95vw;
-        height: 80vh;
-      }
-      .busta {
-        max-width: 95vw;
-      }
-    }
   </style>
 </head>
 <body>
@@ -77,8 +66,8 @@
   <!-- Busta chiusa -->
   <img src="busta.png" alt="Busta Dorata" class="busta" id="busta">
 
-  <!-- PDF incorporato -->
-  <img src="invitoONLINE.pdf" class="invito" id="invito" title="Invito in PDF"></iframe>
+  <!-- Immagine invito da mostrare -->
+  <img src="invitoONLINE.pdf" alt="Invito" class="invito" id="invito">
 
   <script>
     const busta = document.getElementById('busta');
