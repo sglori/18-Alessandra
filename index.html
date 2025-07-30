@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18° Alessandra</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #f9f5ef;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      position: relative;
+    }
+
+    .busta, .invito {
+      transition: opacity 1s, transform 1s;
+      cursor: pointer;
+    }
+
+    .busta {
+      max-width: 90%;
+      max-height: 80vh;
+      z-index: 2;
+    }
+
+    .invito {
+      opacity: 0;
+      transform: scale(0.9);
+      position: absolute;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      pointer-events: none;
+      height: 90%;
+    }
+
+    .busta.fade-out {
+      opacity: 0;
+      transform: scale(1.2);
+    }
+
+    .invito.fade-in {
+      animation: zoomIn 1s ease forwards;
+      pointer-events: auto;
+    }
+
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Busta chiusa -->
+  <img src="busta.png" alt="Busta Dorata" class="busta" id="busta">
+
+  <!-- Immagine invito da mostrare -->
+  <img src="invitoONLINE.pdf" alt="Invito" class="invito" id="invito">
+
+  <script>
+    const busta = document.getElementById('busta');
+    const invito = document.getElementById('invito');
+
+    busta.addEventListener('click', () => {
+      busta.classList.add('fade-out');
+      invito.classList.add('fade-in');
+      setTimeout(() => {
+        busta.style.display = 'none';
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
